@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --bg-color-white:#ece8e8ca;
+    --bg-color-black:rgba(0, 0, 0, 0.841);
+    --toggle-box-white-shadow1:#bbb9b998;
+    --toggle-box-white-shadow2:#a39f9f;
+    --toggle-box-white-shadow3:#b6b2b2e1;
+    --toggle-box-black-shadow1:#15151598;
+    --toggle-box-black-shadow2:#161515;
+    --toggle-box-black-shadow3:#141313e1;
+    --toggle-box-white-before-shadow1:#b8b1b172;
+    --toggle-box-white-before-shadow2:#eadcdcbd;
+    --toggle-box-white-before-shadow3:#bcbabae1;
+    --toggle-box-black-before-shadow1:#5b5a5a72;
+    --toggle-box-black-before-shadow2:#0b0b0bbd;
+    --toggle-box-black-before-shadow3:#191717e1;
+    --toggle-bg-gradient-white1:#e3e0e0;
+    --toggle-bg-gradient-white2:#ebe4e4;
+    --toggle-bg-gradient-black1:#0b0b0be4;
+    --toggle-bg-gradient-black2:#282626ea;
+    --topic-color-white:#c2bebe;
+    --topic-color-black:#393636;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-color:var(--bg-color-white);
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+body.active {
+    background-color:var(--bg-color-black);
+}
+
+#box {
+    position: relative;
+    padding: 12px;
+    /* border: 1px solid black; */
+    width: 500px;
+    height: 250px;
+    /* background-color:transparent; */
+    display: block;
+    /* align-items: center; */
+}
+
+#toggle {
+    position: absolute;
+    left: 130px;
+    width: 240px;
+    height: 90px;
+    cursor: pointer;
+    /* border: 1px solid black; */
+    border-radius: 180px;
+    box-shadow: inset 0 0 8px 10px var(--toggle-box-white-shadow1), inset 0 0 4px 6px var(--toggle-box-white-shadow2), inset 0 0 4px -4px var(--toggle-box-white-shadow3);
+}
+
+#toggle.active {
+    box-shadow: inset 0 0 8px 10px var(--toggle-box-black-shadow1), inset 0 0 4px 6px var(--toggle-box-black-shadow2), inset 0 0 4px -4px var(--toggle-box-black-shadow3);
+}
+
+#toggle::before {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    content: ' ';
+    width: 98px;
+    height: 90px;
+    /* transform:scale(0.9); */
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: linear-gradient(to top, var(--toggle-bg-gradient-white1), var(--toggle-bg-gradient-white2));
+    box-shadow: inset 0 0 4px 6px var(--toggle-box-white-before-shadow1), inset 0 0 3px 3px var(--toggle-box-white-before-shadow2), inset 0 0 2px -4px var(--toggle-box-white-before-shadow3);
+}
+
+#toggle.active::before {
+    left: 140px;
+    background: linear-gradient(to top, var(--toggle-bg-gradient-black1), var(--toggle-bg-gradient-black2));
+    box-shadow: inset 0 0 4px 6px var(--toggle-box-black-before-shadow1), inset 0 0 3px 3px var(--toggle-box-black-before-shadow2), inset 0 0 2px -4px var(--toggle-box-black-before-shadow3);
+}
+
+#topic {
+    position: absolute;
+    width: 450px;
+    height: 60px;
+    left: 20px;
+    bottom: 10px;
+    /* border: 1px solid black; */
+    color:var(--bg-color-black);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.5rem;
+}
+
+#topic.active {
+    color:var(--bg-color-white);
+}
+
+@media only screen and (max-width:900px) {
+    #box {
+        /* background-color: red; */
+        width:70%;
+        /* height:300px; */
+    }
+    #toggle{
+        top:9%;
+        /* left:20%; */
+    }
+    #topic{
+        width:85%;
+        bottom:10%;
+        padding-top:12px;
+        font-size:2rem;
+    }
+}
+@media only screen and (max-width:724px) {
+    #box {
+        /* background-color: rgb(174, 31, 131); */
+        width:75%;
+    }
+    #toggle{
+        top:12%;
+        /* left:20%; */
+    }
+    #topic{
+        width:90%;
+        bottom:20%;
+        padding-top:12px;
+        font-size:1rem;
+    }
+}
+@media only screen and (width:500px) {
+    #box {
+        /* background-color: rgb(0, 255, 64); */
+        width:100%;
+        height:100%;
+    }
+    
+    #toggle{
+        top:40%;
+        left:20%;
+    }
+    #topic{
+        left:0;
+        width:100%;
+        bottom:35%;
+        padding-top:12px;
+        font-size:1rem;
+    }
+}
